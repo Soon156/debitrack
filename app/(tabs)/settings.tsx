@@ -4,13 +4,13 @@ import { ThemedView } from '@/components/ThemedView'
 import { Button, Icon } from '@rneui/themed'
 import { dropTable } from '@/script/RecordDB'
 import { exportDatabase, importDatabase } from '@/script/exportImportDB'
-import { signInWithGoogle } from '@/script/credentials'
+import { signIn, updateDB } from '@/script/googleAPIs'
 
-export default function settingPage() {
+export default function SettingPage() {
   return (
     <ThemedView>
       <Button radius={"sm"} type="solid" onPress={() => {
-        signInWithGoogle();
+        signIn();
       }}>
         <Icon name="login" type="material-community" color="white" />
         Login Account
@@ -28,6 +28,8 @@ export default function settingPage() {
         Export DB
       </Button>
       <Button radius={"sm"} type="solid" onPress={() => {
+        // TODO add alert before sync - overwrite issue
+        updateDB();
       }}>
         <Icon name="database-sync" type="material-community" color="white" />
         Sync DB

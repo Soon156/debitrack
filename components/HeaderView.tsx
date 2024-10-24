@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { PropsWithChildren } from 'react'
+import { ThemedView } from './ThemedView';
+import { ThemedText } from './ThemedText';
 
 interface HeaderViewProps {
     amount: number;
@@ -8,9 +10,9 @@ interface HeaderViewProps {
 export default function HeaderView({amount}: HeaderViewProps) {
 
     return (
-        <View>
-            <Text>${amount}</Text>
-        </View>
+        <ThemedView>
+            <ThemedText>${amount}</ThemedText>
+        </ThemedView>
     )
 }
 

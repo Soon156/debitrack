@@ -35,10 +35,7 @@ export default function RecordPage() {
               amount: parseFloat(amount),
               timestamp: date.toISOString()
             };
-            const handleAddRecord = async () => {
-              addRecord(newRecord);
-            };
-            handleAddRecord();
+            await addRecord(newRecord);
           }
         }}>
         <Icon name="add"></Icon>

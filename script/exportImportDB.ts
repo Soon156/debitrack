@@ -2,6 +2,9 @@ import { DB_NAME } from '@/constants/Modal';
 import * as FileSystem from 'expo-file-system';
 import { PermissionsAndroid } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
+import RNFS from 'react-native-fs';
+
+export const dbPath = `${FileSystem.documentDirectory}SQLite`;
 
 async function requestStoragePermission() {
     try {
@@ -26,24 +29,14 @@ async function requestStoragePermission() {
 export async function importDatabase() {
     let filePath = await DocumentPicker.getDocumentAsync();
     console.log(filePath);
-
     // TODO
 }
 
 // Function to export the SQLite database
 export async function exportDatabase() {
     try {
-        const dbPath = `${FileSystem.documentDirectory}SQLITE/${DB_NAME}`;
-        /*Platform.OS === 'ios'
-            ? `${FileSystem.documentDirectory}SQLITE/${DB_NAME}`
-            : `${RNFS.DocumentDirectoryPath}/${dbName}`;*/
-
-        /*
-            Platform.OS === 'ios'
-                ? `${RNFS.TemporaryDirectoryPath}/${dbName}`
-                : `${RNFS.ExternalDirectoryPath}/${dbName}`;*/
+        // TODO 
         // Copy database to an accessible location
-
 
     } catch (error) {
         console.error('Failed to export database: ', error);

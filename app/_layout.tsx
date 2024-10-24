@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { Colors } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
+import { initDB } from '@/script/RecordDB';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -19,9 +20,13 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    const init = async () => {
+      await initDB();
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+    };
+    init();
   }, [loaded]);
 
   if (!loaded) {
